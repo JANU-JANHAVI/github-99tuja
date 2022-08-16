@@ -1,0 +1,38 @@
+<hr />
+<br />
+<h3 style="padding: 0 16px">Take a look at our different products...</h3>
+<p style="padding: 0 16px">Grab the best deals quickly!!</p>
+<br />
+<div>
+  <mat-grid-list cols="4" rowHeight="4:5" gutterSize="15px" class="grid-list">
+    <mat-grid-tile *ngFor="let product of products">
+      <mat-card class="example-card mat-elevation-z5">
+        <mat-card-header>
+          <mat-card-title>{{ product.title }}</mat-card-title>
+          <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="mat-card-img" mat-card-img src="{{ product.images[0] }}" />
+        <mat-card-content>
+          <p>{{ product.description }}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+          <button
+            class="btn-1"
+            (click)="getProductDetails($event, product)"
+            mat-button
+            mat-raised-button
+            matTooltip="Get details of the product"
+          >
+            DETAILS
+          </button>
+          <button mat-button>
+            <mat-icon
+              ><a class="nav-link" routerLink="/menu">screen_share</a></mat-icon
+            >
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
